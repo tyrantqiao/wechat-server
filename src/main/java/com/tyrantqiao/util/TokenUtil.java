@@ -1,5 +1,7 @@
 package com.tyrantqiao.util;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.security.MessageDigest;
 import java.util.Arrays;
 
@@ -7,11 +9,13 @@ import java.util.Arrays;
  * @author tyrantqiao [tyrantqiao@gmail.com]
  * @see <a href="https://github.com/tyrantqiao">qiao's github</a>
  */
+@Slf4j
 public class TokenUtil {
-	private static String token = "tyrantqiao";
+	private static final String TOKEN = "tyrantqiao";
 
-	public static boolean checkToken(String signature, String timestamp, String echoStr) {
-		String[] strings = new String[]{token, signature, timestamp, echoStr};
+	public static boolean checkToken(String signature, String timestamp, String nonce) {
+
+		String[] strings = new String[]{TOKEN, timestamp, nonce};
 		//TODO 字符串排序是排什么的，可以写一下
 		Arrays.sort(strings);
 
@@ -21,7 +25,9 @@ public class TokenUtil {
 			stringBuffer.append(s);
 		}
 		String sha1Strings = getSha1(stringBuffer.toString());
-		return token.equals(sha1Strings);
+		log.info("字典加密后字符串为"+sha1Strings);
+		log.info("签名为"+signature);
+		return signature.equals(sha1Strings);
 	}
 
 	private static String getSha1(String str) {
@@ -42,6 +48,7 @@ public class TokenUtil {
 				buf[k++] = hexDigits[byte0 >>> 4 & 0xf];
 				buf[k++] = hexDigits[byte0 & 0xf];
 			}
+
 			return new String(buf);
 		} catch (Exception e) {
 			return null;
