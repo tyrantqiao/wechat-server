@@ -36,5 +36,4 @@ public class TokenController {
 
 		return tokenService.checkSignature(signature, timestamp, nonce, echoStr);
 	}
-
 }
