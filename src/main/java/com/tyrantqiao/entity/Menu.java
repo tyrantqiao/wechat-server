@@ -1,5 +1,9 @@
 package com.tyrantqiao.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,11 +12,12 @@ import java.util.List;
  * blog: tyrantqiao.com
  * contact: tyrantqiao@icloud.com
  */
-public class Menu {
-    private String type;
-    private String name;
-    private String key;
-    private List<MenuItem> menuItems;
+@JsonFormat
+public class Menu extends BaseEntity {
+    /**
+     * 一级菜单最多为3个，二级菜单最多五个
+     */
+    private List<MenuItem> menuItems = new ArrayList<>(3);
 
     public boolean addMenuItem(MenuItem menuItem) {
         return menuItems.add(menuItem);
@@ -24,30 +29,6 @@ public class Menu {
 
     public List<MenuItem> getMenuItems() {
         return menuItems;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
     }
 }
 

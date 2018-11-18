@@ -12,6 +12,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class MenuService {
     public void createMenu(Menu menu){
-
+        
     }
 }

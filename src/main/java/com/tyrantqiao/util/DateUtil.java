@@ -356,7 +356,6 @@ public class DateUtil {
 	 * @return String
 	 * 返回类型 @throws
 	 * @Title: format
-	 * @Description: TODO(yyyy - MM - dd)
 	 */
 	public static String format(Date date) {
 		if (date == null) {
@@ -369,7 +368,6 @@ public class DateUtil {
 	 * @return 设定文件 @return String
 	 * 返回类型 @throws
 	 * @Title: formatCurrentDate
-	 * @Description: TODO(yyyy - MM - dd)
 	 */
 	public static String formatCurrentDate() {
 		return DateUtil.format(new Date(System.currentTimeMillis()), NORMAL_DATE_FORMAT);
@@ -1660,7 +1658,7 @@ public class DateUtil {
 		 * System.out.println(new Date()); System.out.println(getDateStartTime(new Date(), -10));
 		 * String myString = "2014-04-09"; SimpleDateFormat sdf = new
 		 * SimpleDateFormat("yyyy-MM-dd"); try { Date d = sdf.parse(myString);
-		 * System.out.println(getCompareDate(d, new Date())); } catch (ParseException e) { // TODO
+		 * System.out.println(getCompareDate(d, new Date())); } catch (ParseException e) {
 		 * Auto-generated catch block  }
 		 *
 		 * System.out.println(DateUtil.parse("2014-04-12 12:15:33", DateUtil.DATETIME));

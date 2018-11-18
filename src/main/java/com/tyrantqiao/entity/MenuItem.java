@@ -1,5 +1,8 @@
 package com.tyrantqiao.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author tyrantqiao
  * date: 2018/10/27
@@ -13,6 +16,15 @@ public class MenuItem {
     private String appid;
     private String pagepath;
     private String key;
+    private List<MenuItem> menuItems = new ArrayList<>(5);
+
+    public boolean addMenuItem(MenuItem menuItem) {
+        return menuItems.add(menuItem);
+    }
+
+    public boolean removeMenuItem(MenuItem menuItem) {
+        return menuItems.remove(menuItem);
+    }
 
     public String getType() {
         return type;
